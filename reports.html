@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <h1>Branch-wise KYC Report</h1>
+
+    <a
+        href="{{ url_for('download_report') }}"
+        class="btn">
+
+        Download CSV
+
+    </a>
+
+</div>
+
+
+<div class="table-container">
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Branch Code</th>
+                <th>Branch</th>
+                <th>City</th>
+                <th>Pending Re-KYC</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+        {% for report in reports %}
+
+            <tr>
+
+                <td>
+                    {{ report.branch_code }}
+                </td>
+
+                <td>
+                    {{ report.branch_name }}
+                </td>
+
+                <td>
+                    {{ report.city }}
+                </td>
+
+                <td>
+
+                    <strong>
+                        {{ report.pending_count }}
+                    </strong>
+
+                </td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>KYC Monitor Login</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body class="login-body">
+
+<div class="login-box">
+
+<h1>KYC Monitor</h1>
+
+<p>Banking Compliance System</p>
+
+<form method="POST">
+
+<label>Username</label>
+
+<input
+type="text"
+name="username"
+required>
+
+
+<label>Password</label>
+
+<input
+type="password"
+name="password"
+required>
+
+
+<button type="submit">
+Login
+</button>
+
+</form>
+
+<p class="login-info">
+Demo Login: admin / admin123
+</p>
+
+</div>
+
+</body>
+
+</html>

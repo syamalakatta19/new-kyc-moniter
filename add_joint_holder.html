@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Add Joint Account Holder</h1>
+
+<p>
+Account Number:
+<strong>{{ account_number }}</strong>
+</p>
+
+
+<form method="POST"
+      class="form-box">
+
+
+<label>Holder Name</label>
+
+<input
+type="text"
+name="holder_name"
+required>
+
+
+<label>Date of Birth</label>
+
+<input
+type="text"
+name="dob"
+placeholder="DD-MM-YYYY">
+
+
+<label>Phone</label>
+
+<input
+type="text"
+name="phone">
+
+
+<label>Email</label>
+
+<input
+type="email"
+name="email">
+
+
+<label>KYC Document</label>
+
+<select name="kyc_document">
+
+<option>Aadhaar</option>
+
+<option>PAN</option>
+
+<option>Passport</option>
+
+<option>Driving License</option>
+
+</select>
+
+
+<label>KYC Issue Date</label>
+
+<input
+type="text"
+name="kyc_issue_date">
+
+
+<label>KYC Expiry Date</label>
+
+<input
+type="text"
+name="kyc_expiry_date"
+required>
+
+
+<button type="submit">
+Save Joint Holder
+</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h1>Schedule Re-KYC</h1>
+
+
+    <div class="info-box">
+
+        <p>
+            <strong>Customer:</strong>
+            {{ customer.full_name }}
+        </p>
+
+        <p>
+            <strong>Account:</strong>
+            {{ customer.account_number }}
+        </p>
+
+        <p>
+            <strong>KYC Expiry:</strong>
+            {{ customer.kyc_expiry_date }}
+        </p>
+
+        <p>
+            <strong>Status:</strong>
+            {{ customer.kyc_status }}
+        </p>
+
+    </div>
+
+
+    <form method="POST">
+
+        <label>
+            Re-KYC Scheduled Date
+        </label>
+
+        <input
+            type="text"
+            name="scheduled_date"
+            placeholder="DD-MM-YYYY"
+            required
+        >
+
+
+        <label>
+            Remarks
+        </label>
+
+        <textarea
+            name="remarks"
+            placeholder="Enter remarks">
+        </textarea>
+
+
+        <br><br>
+
+        <button type="submit">
+            Schedule Re-KYC
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

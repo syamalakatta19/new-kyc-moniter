@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h1>Edit Customer</h1>
+
+
+    <form method="POST">
+
+        <div class="form-grid">
+
+            <div>
+
+                <label>Customer Number</label>
+
+                <input
+                    type="text"
+                    value="{{ customer.customer_number }}"
+                    disabled
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    name="full_name"
+                    value="{{ customer.full_name }}"
+                    required
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>Date of Birth</label>
+
+                <input
+                    type="text"
+                    name="dob"
+                    value="{{ customer.dob }}"
+                    required
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>Phone</label>
+
+                <input
+                    type="text"
+                    name="phone"
+                    value="{{ customer.phone or '' }}"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    name="email"
+                    value="{{ customer.email or '' }}"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>Branch</label>
+
+                <select name="branch_id">
+
+                    {% for branch in branches %}
+
+                    <option
+                        value="{{ branch.branch_id }}"
+                        {% if customer.branch_id ==
+                            branch.branch_id %}
+                        selected
+                        {% endif %}
+                    >
+
+                        {{ branch.branch_name }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>Account Type</label>
+
+                <select name="account_type">
+
+                    <option value="Savings">
+                        Savings
+                    </option>
+
+                    <option value="Current">
+                        Current
+                    </option>
+
+                    <option value="Joint">
+                        Joint
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>Account Number</label>
+
+                <input
+                    type="text"
+                    name="account_number"
+                    value="{{ customer.account_number }}"
+                    required
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>KYC Document</label>
+
+                <input
+                    type="text"
+                    name="kyc_document"
+                    value="{{ customer.kyc_document or '' }}"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>KYC Issue Date</label>
+
+                <input
+                    type="text"
+                    name="kyc_issue_date"
+                    value="{{ customer.kyc_issue_date or '' }}"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>KYC Expiry Date</label>
+
+                <input
+                    type="text"
+                    name="kyc_expiry_date"
+                    value="{{ customer.kyc_expiry_date or '' }}"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+
+        <br>
+
+        <button type="submit">
+            Update Customer
+        </button>
+
+        <a
+            href="{{ url_for('customers') }}"
+            class="btn secondary">
+
+            Cancel
+
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}
